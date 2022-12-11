@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.Concrete
+namespace Core.Entities
 {
-    public class Passwords
+    public interface IMongoModel
     {
     }
 }
