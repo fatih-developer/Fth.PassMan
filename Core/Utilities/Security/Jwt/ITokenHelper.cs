@@ -1,7 +1,6 @@
 ﻿using Core.Entities.Concrete;
-using System.Collections.Generic;
 
-namespace MainCore.Utilities.Security.Jwt
+namespace Core.Utilities.Security.Jwt
 {
     public interface ITokenHelper
     {

@@ -1,7 +1,6 @@
-﻿using System;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace MainCore.Utilities.IoC
+namespace Core.Utilities.IoC
 {
     public static class ServiceTool
     {

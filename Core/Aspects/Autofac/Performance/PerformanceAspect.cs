@@ -1,10 +1,10 @@
 ﻿using System.Diagnostics;
 using Castle.DynamicProxy;
-using MainCore.Utilities.Interceptors.Autofac;
-using MainCore.Utilities.IoC;
+using Core.Utilities.Interceptors.Autofac;
+using Core.Utilities.IoC;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace MainCore.Aspects.Autofac.Performance
+namespace Core.Aspects.Autofac.Performance
 {
     public class PerformanceAspect:MethodInterception
     {

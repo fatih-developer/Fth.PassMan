@@ -1,7 +1,4 @@
-﻿using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
-
-namespace Framework.Entities
+﻿namespace Core.Entities
 {
     public interface IEntity
     {

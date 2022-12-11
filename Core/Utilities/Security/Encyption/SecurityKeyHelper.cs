@@ -1,7 +1,7 @@
-﻿using Microsoft.IdentityModel.Tokens;
-using System.Text;
+﻿using System.Text;
+using Microsoft.IdentityModel.Tokens;
 
-namespace MainCore.Utilities.Security.Encyption
+namespace Core.Utilities.Security.Encyption
 {
     public class SecurityKeyHelper
     {

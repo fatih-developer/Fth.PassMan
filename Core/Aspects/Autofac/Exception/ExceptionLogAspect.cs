@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using Castle.DynamicProxy;
-using MainCore.CrossCuttingConcerns.Logging;
-using MainCore.CrossCuttingConcerns.Logging.Log4Net;
-using MainCore.Utilities.Interceptors.Autofac;
-using MainCore.Utilities.Messages;
+﻿using Castle.DynamicProxy;
+using Core.CrossCuttingConcerns.Logging;
+using Core.CrossCuttingConcerns.Logging.Log4Net;
+using Core.Utilities.Interceptors.Autofac;
+using Core.Utilities.Messages;
 
-namespace MainCore.Aspects.Autofac.Exception
+namespace Core.Aspects.Autofac.Exception
 {
     public class ExceptionLogAspect:MethodInterception
     {

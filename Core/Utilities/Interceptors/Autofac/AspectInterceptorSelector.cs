@@ -1,11 +1,9 @@
-﻿using System;
-using System.Linq;
-using System.Reflection;
+﻿using System.Reflection;
 using Castle.DynamicProxy;
-using MainCore.Aspects.Autofac.Exception;
-using MainCore.CrossCuttingConcerns.Logging.Log4Net.Loggers;
+using Core.Aspects.Autofac.Exception;
+using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 
-namespace MainCore.Utilities.Interceptors.Autofac
+namespace Core.Utilities.Interceptors.Autofac
 {
     public class AspectInterceptorSelector:IInterceptorSelector
     {

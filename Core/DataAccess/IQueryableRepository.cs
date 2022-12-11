@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using Core.Entities;
-using Framework.Entities;
 
 namespace Core.DataAccess
 {

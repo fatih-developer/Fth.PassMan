@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Security.Claims;
-using Core.Entities.Concrete;
-using MainCore.Extensions;
-using MainCore.Utilities.Security.Encyption;
+﻿using Core.Entities.Concrete;
+using Core.Utilities.Security.Encyption;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
 
-namespace MainCore.Utilities.Security.Jwt
+namespace Core.Utilities.Security.Jwt
 {
     public class JwtHelper:ITokenHelper
     {
@@ -20,7 +15,9 @@ namespace MainCore.Utilities.Security.Jwt
         {
             Configuration = configuration;
             _tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
-            
+            //var myAppSettings = builder.Configuration.Get<MyAppSettings>();
+
+           
         }
 
         public AccessToken CreateToken(User user)

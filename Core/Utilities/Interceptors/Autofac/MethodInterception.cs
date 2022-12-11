@@ -1,6 +1,6 @@
 ﻿using Castle.DynamicProxy;
 
-namespace MainCore.Utilities.Interceptors.Autofac
+namespace Core.Utilities.Interceptors.Autofac
 {
     public abstract class MethodInterception : MethodInterceptionBaseAttribute
     {

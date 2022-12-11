@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 
-namespace MainCore.Extensions
+namespace Core.Extensions
 {
     public static class ExcetionMiddlewareExtentions
     {

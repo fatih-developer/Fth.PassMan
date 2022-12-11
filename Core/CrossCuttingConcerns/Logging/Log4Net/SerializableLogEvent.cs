@@ -1,8 +1,6 @@
 ﻿using log4net.Core;
-using System;
-using System.Runtime.Serialization;
 
-namespace MainCore.CrossCuttingConcerns.Logging.Log4Net
+namespace Core.CrossCuttingConcerns.Logging.Log4Net
 {
     [Serializable]
     public class SerializableLogEvent

@@ -1,8 +1,8 @@
 ﻿using System.Transactions;
 using Castle.DynamicProxy;
-using MainCore.Utilities.Interceptors.Autofac;
+using Core.Utilities.Interceptors.Autofac;
 
-namespace MainCore.Aspects.Autofac.Transaction
+namespace Core.Aspects.Autofac.Transaction
 {
     public class TransactionScopeAspect : MethodInterception
     {

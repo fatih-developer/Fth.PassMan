@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using Core.DataAccess;
+﻿using System.Linq.Expressions;
 using Core.Entities;
-using Framework.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace MainCore.DataAccess.EntityFramework
+namespace Core.DataAccess.EntityFramework
 {
     public class EfEntityRepositoryBase<TEntity,TContext>:IEntityRepository<TEntity>
         where TEntity:class,IEntity,new()

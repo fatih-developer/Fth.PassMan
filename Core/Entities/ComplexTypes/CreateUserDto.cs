@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Framework.Entities.ComplexTypes
+﻿namespace Core.Entities.ComplexTypes
 {
     public class CreateUserDto:IDto
     {

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace MainCore.CrossCuttingConcerns.Exceptions
+﻿namespace Core.CrossCuttingConcerns.Exceptions
 {
     
     public static class BusinessRules

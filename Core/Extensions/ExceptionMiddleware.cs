@@ -1,10 +1,8 @@
-﻿using System;
-using System.Net;
-using System.Threading.Tasks;
+﻿using System.Net;
 using FluentValidation;
 using Microsoft.AspNetCore.Http;
 
-namespace MainCore.Extensions
+namespace Core.Extensions
 {
     public class ExceptionMiddleware
     {

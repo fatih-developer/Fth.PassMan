@@ -1,4 +1,4 @@
-﻿namespace MainCore.Utilities.Results
+﻿namespace Core.Utilities.Results
 {
     public class SuccessResult:Result
     {

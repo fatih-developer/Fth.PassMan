@@ -1,12 +1,10 @@
-﻿using System;
-using System.Linq;
-using Castle.DynamicProxy;
+﻿using Castle.DynamicProxy;
+using Core.CrossCuttingConcerns.Validation;
+using Core.Utilities.Interceptors.Autofac;
+using Core.Utilities.Messages;
 using FluentValidation;
-using MainCore.CrossCuttingConcerns.Validation;
-using MainCore.Utilities.Interceptors.Autofac;
-using MainCore.Utilities.Messages;
 
-namespace MainCore.Aspects.Autofac.Validation
+namespace Core.Aspects.Autofac.Validation
 {
     public class ValidationAspect:MethodInterception
     { 

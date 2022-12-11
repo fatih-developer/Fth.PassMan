@@ -1,9 +1,8 @@
-﻿using System.IO;
-using log4net.Core;
+﻿using log4net.Core;
 using log4net.Layout;
 using Newtonsoft.Json;
 
-namespace MainCore.CrossCuttingConcerns.Logging.Log4Net.Layouts
+namespace Core.CrossCuttingConcerns.Logging.Log4Net.Layouts
 {
     public class JsonLayout:LayoutSkeleton
     {

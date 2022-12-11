@@ -1,8 +1,7 @@
-using System;
 using System.Collections;
 using System.Reflection;
 
-namespace MainCore.Utilities.Enums
+namespace Core.Utilities.Enums
 {
 
 	#region Class StringEnum

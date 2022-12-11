@@ -1,6 +1,4 @@
-﻿using Framework.Entities;
-
-namespace Entities.ComplexType
+﻿namespace Core.Entities.ComplexTypes
 {
     public class UserLoginDto:IDto
     {

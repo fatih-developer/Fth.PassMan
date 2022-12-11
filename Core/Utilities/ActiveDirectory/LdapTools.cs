@@ -1,13 +1,10 @@
-﻿using System;
-using System.Net;
-using System.Net.Http;
+﻿using System.Net;
 using System.Text;
-using System.Threading.Tasks;
 using Core.Entities.Concrete;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 
-namespace MainCore.Utilities.ActiveDirectory
+namespace Core.Utilities.ActiveDirectory
 {
     public class LdapTools : ILdapTools
     {

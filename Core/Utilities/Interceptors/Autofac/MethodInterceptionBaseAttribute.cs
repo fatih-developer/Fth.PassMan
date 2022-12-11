@@ -1,7 +1,6 @@
-﻿using System;
-using Castle.DynamicProxy;
+﻿using Castle.DynamicProxy;
 
-namespace MainCore.Utilities.Interceptors.Autofac
+namespace Core.Utilities.Interceptors.Autofac
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true, Inherited = true)]
     public class MethodInterceptionBaseAttribute : Attribute, IInterceptor

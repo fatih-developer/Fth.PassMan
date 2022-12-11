@@ -1,8 +1,8 @@
 ﻿using Castle.DynamicProxy;
-using MainCore.Extensions;
-using MainCore.Utilities.Interceptors.Autofac;
-using MainCore.Utilities.IoC;
-using MainCore.Utilities.Messages;
+using Core.Extensions;
+using Core.Utilities.Interceptors.Autofac;
+using Core.Utilities.IoC;
+using Core.Utilities.Messages;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -31,7 +31,7 @@ namespace Core.Aspects.Autofac.Auth
                 }
 
             }
-            throw new Exception(AspectMessages.AuthorizationDenied);
+            throw new System.Exception(AspectMessages.AuthorizationDenied);
         }
     }
 }

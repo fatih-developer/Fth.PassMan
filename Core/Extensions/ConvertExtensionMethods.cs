@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MainCore.Extensions
+﻿namespace Core.Extensions
 {
     public static class ConvertExtensionMethods
     {

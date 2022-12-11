@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using MainCore.Utilities.Results;
+﻿using Core.Utilities.Results;
 
-namespace MainCore.DataAccess
+namespace Core.DataAccess
 {
     public interface IServiceBase<T>
     {

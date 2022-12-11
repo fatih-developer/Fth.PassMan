@@ -1,6 +1,6 @@
-﻿using MainCore.Utilities.Results;
+﻿using Core.Utilities.Results;
 
-namespace MainCore.Utilities.Business
+namespace Core.Utilities.Business
 {
     public class BusinessRules
     {

@@ -1,11 +1,10 @@
-﻿using System.Linq;
-using Castle.DynamicProxy;
-using MainCore.CrossCuttingConcerns.Caching;
-using MainCore.Utilities.Interceptors.Autofac;
-using MainCore.Utilities.IoC;
+﻿using Castle.DynamicProxy;
+using Core.CrossCuttingConcerns.Caching;
+using Core.Utilities.Interceptors.Autofac;
+using Core.Utilities.IoC;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace MainCore.Aspects.Autofac.Caching
+namespace Core.Aspects.Autofac.Caching
 {
     public class CacheAspect:MethodInterception
     {

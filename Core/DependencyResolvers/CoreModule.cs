@@ -1,11 +1,11 @@
 ﻿using System.Diagnostics;
-using MainCore.CrossCuttingConcerns.Caching;
-using MainCore.CrossCuttingConcerns.Caching.Microsoft;
-using MainCore.Utilities.IoC;
+using Core.CrossCuttingConcerns.Caching;
+using Core.CrossCuttingConcerns.Caching.Microsoft;
+using Core.Utilities.IoC;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace MainCore.DependencyResolvers
+namespace Core.DependencyResolvers
 {
     public class CoreModule:ICoreModule
     {

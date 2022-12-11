@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MainCore.CrossCuttingConcerns.Exceptions
+﻿namespace Core.CrossCuttingConcerns.Exceptions
 {
     public class BusinessException : Exception
     {

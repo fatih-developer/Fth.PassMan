@@ -1,4 +1,4 @@
-﻿namespace MainCore.Utilities.ActiveDirectory
+﻿namespace Core.Utilities.ActiveDirectory
 {
     public interface ILdapTools
     {
