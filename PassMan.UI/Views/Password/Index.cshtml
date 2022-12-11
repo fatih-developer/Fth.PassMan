@@ -1,0 +1,32 @@
+﻿@model PasswordSaveModel
+
+@{
+    ViewData["Title"] = "Password Page";
+}
+
+
+
+<div class="text-center">
+    
+    <form asp-controller="Password" asp-action="Add" method="post">
+        <div class="form-group">
+            <label asp-for="Password.username">Username</label>
+            <input asp-for="Password.username" class="form-control" id="inputUsername" placeholder="Username">
+        </div>
+        
+        <div class="form-group">
+            <label asp-for="Password.detail">Detail</label>
+            <input asp-for="Password.detail" class="form-control" id="inputDetail" placeholder="Detay">
+        </div>
+        
+        
+        <div class="form-group">
+            <label asp-for="Password.password">Password</label>
+            <input asp-for="Password.password" class="form-control" type="password" id="inputPass" placeholder="Password">
+        </div>
+
+       
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>

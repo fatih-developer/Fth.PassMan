@@ -5,7 +5,13 @@ VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{34B51A34-40BC-44DA-B2BA-577F4F966BD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{386FE878-5FAC-4542-9624-459AC43C5485}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{386FE878-5FAC-4542-9624-459AC43C5485}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{69A4F40A-965D-49D6-A186-197AB78F277A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{B28D09A0-6F4F-49D7-902C-3C0B850EC9ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassMan.UI", "PassMan.UI\PassMan.UI.csproj", "{8FBC1EF7-FA91-4684-9409-4F1BF1EDAE1E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{386FE878-5FAC-4542-9624-459AC43C5485}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{386FE878-5FAC-4542-9624-459AC43C5485}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{386FE878-5FAC-4542-9624-459AC43C5485}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69A4F40A-965D-49D6-A186-197AB78F277A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69A4F40A-965D-49D6-A186-197AB78F277A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69A4F40A-965D-49D6-A186-197AB78F277A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69A4F40A-965D-49D6-A186-197AB78F277A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B28D09A0-6F4F-49D7-902C-3C0B850EC9ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B28D09A0-6F4F-49D7-902C-3C0B850EC9ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B28D09A0-6F4F-49D7-902C-3C0B850EC9ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B28D09A0-6F4F-49D7-902C-3C0B850EC9ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FBC1EF7-FA91-4684-9409-4F1BF1EDAE1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FBC1EF7-FA91-4684-9409-4F1BF1EDAE1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FBC1EF7-FA91-4684-9409-4F1BF1EDAE1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FBC1EF7-FA91-4684-9409-4F1BF1EDAE1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

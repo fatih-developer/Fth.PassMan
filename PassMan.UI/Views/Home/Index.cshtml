@@ -1,0 +1,27 @@
+﻿@model PasswordListViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <a asp-action="Index" asp-controller="Password" class="btn btn-primary">Yeni Kayıt</a>
+    @{
+        foreach (var p in Model.ListPassword)
+        {
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h4 class="card-header">@p.username</h4>
+                    <h5 class="card-title">@p.detail</h5>
+
+                    <p class="card-text">@p.password</p>
+                   
+                </div>
+            </div>
+        }
+    }
+
+   
+
+</div>
