@@ -25,6 +25,7 @@ namespace PassMan.UI.Controllers
             _categoryList.Add("database");
             _categoryList.Add("rdp");
             _categoryList.Add("ssh");
+            _categoryList.Add("tcp");
 
             _brandList.Add("Seçiniz...");
             _brandList.Add("Oracle");
@@ -52,7 +53,7 @@ namespace PassMan.UI.Controllers
             password.Id = String.Empty;
 
             _passwordService.CreateNewPasswordAsync(password);
-            ViewBag.Durum("message", "Product was successfully added");
+            //ViewBag.Durum("message", "Product was successfully added");
 
             return RedirectToAction("Index");
         }
