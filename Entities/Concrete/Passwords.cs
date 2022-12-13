@@ -10,22 +10,38 @@ namespace Entities.Concrete
 {
     public class Passwords : MongoModel
     {
+        [BsonElement("loginname")]
+        public string Loginname { get; set; } = null!;
+
         [BsonElement("username")]
-        public string username { get; set; } = null!;
+        public string Username { get; set; } = null!;
+
         [BsonElement("password")]
-        public string password { get; set; } = null!;
-        [BsonElement("iv")]
-        public string iv { get; set; } = null!;
-
+        public string Password { get; set; } = null!;
+       
         [BsonElement("detail")]
-        public string detail { get; set; } = null!;
+        public string Detail { get; set; } = null!;
 
-        public Passwords(string username, string password, string iv, string detail)
+        [BsonElement("link")]
+        public string Link { get; set; } = null!;
+
+        [BsonElement("clients")]
+        public List<string> Clients { get; set; } = null;
+
+        [BsonElement("category")] 
+        public List<string> Category { get; set; } = null;
+
+
+
+        public Passwords(string loginname, string username, string password, string detail, string link, List<string> clients,List<string> category)
         {
-            this.username = username;
-            this.password = password;
-            this.iv = iv;
-            this.detail = detail;
+            this.Loginname = loginname;
+            this.Username = username;
+            this.Password = password;
+            this.Detail = detail;
+            this.Link = link;
+            this.Clients = clients;
+            this.Category = category;
         }
 
         public Passwords()

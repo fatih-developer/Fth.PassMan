@@ -3,30 +3,55 @@
 @{
     ViewData["Title"] = "Password Page";
 }
-
-
-
-<div class="text-center">
-    
-    <form asp-controller="Password" asp-action="Add" method="post">
-        <div class="form-group">
-            <label asp-for="Password.username">Username</label>
-            <input asp-for="Password.username" class="form-control" id="inputUsername" placeholder="Username">
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
         </div>
-        
-        <div class="form-group">
-            <label asp-for="Password.detail">Detail</label>
-            <input asp-for="Password.detail" class="form-control" id="inputDetail" placeholder="Detay">
-        </div>
-        
-        
-        <div class="form-group">
-            <label asp-for="Password.password">Password</label>
-            <input asp-for="Password.password" class="form-control" type="password" id="inputPass" placeholder="Password">
-        </div>
+        <div class="col-md-9">
+            <div class="text-center">
 
-       
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+                <form asp-controller="Password" asp-action="Add" method="post">
 
+
+                    <div class="form-group col-md-6">
+                        <input asp-for="Password.Loginname" class="form-control" id="inputName" placeholder="Name">
+                    </div>
+
+                    <br>
+
+                    <div class="form-group col-md-6">
+                        <select asp-for="Password.Category" name="Password.Category" class="form-control" asp-items="@(new SelectList(Model.Categories))"></select>
+                    </div>
+
+                    <br>
+
+
+                    <div class="form-group col-md-6">
+                        <select asp-for="Password.Clients" id="Password.Clients" name="Password.Clients" class="form-control" asp-items="@(new SelectList(Model.Clients))"></select>
+                    </div>
+
+                    <br>
+
+                    <div class="form-group col-md-6">
+                        <input asp-for="Password.Detail" class="form-control" id="inputDetail" placeholder="Detay">
+                    </div>
+
+                    <br>
+                    <div class="form-group col-md-6">
+                        <input asp-for="Password.Username" class="form-control" id="inputUsername" placeholder="Username">
+                    </div>
+                    <br>
+                    <div class="form-group col-md-6">
+                        <input asp-for="Password.Password" class="form-control" type="password" id="inputPass" placeholder="Password">
+                    </div>
+                    <br>
+
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
 </div>
+
+

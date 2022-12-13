@@ -2,26 +2,43 @@
 
 @{
     ViewData["Title"] = "Home Page";
+    <script type="text/javascript">
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })s
+    </script>
 }
+
+
+
+
 
 <div class="text-center">
     <a asp-action="Index" asp-controller="Password" class="btn btn-primary">Yeni Kayıt</a>
     @{
         foreach (var p in Model.ListPassword)
         {
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h4 class="card-header">@p.username</h4>
-                    <h5 class="card-title">@p.detail</h5>
+            <div class="card bg-dark shadow-sm text-white" style="width: 18rem;">
 
-                    <p class="card-text">@p.password</p>
-                   
+                <h4 class="card-header" style="background-image: url('/img/header.png');background-repeat: no-repeat;background-size: 100%"><i class="float-start fa-solid fa-database"></i> @p.Username</h4>
+                <div class="card-body">
+
+                    <h5 class="card-title">@p.Detail</h5>
+
+                    <p class="card-text">@p.Category[0] - @p.Clients[0]</p>
+                    <p></p>
+                    <hr/>
+                    <footer>
+                        <a asp-action="Details" asp-controller="Password" class="btn btn-sm btn-outline-primary" data-toggle="tooltip" data-placement="top" title="Detaylar"><i class="fa-solid fa-info"></i></a>
+                        <a asp-action="Visible" asp-controller="Home" asp-route-id="@p.Id" class="btn btn-sm btn-outline-primary" data-toggle="tooltip" data-placement="top" title="View Password"><i class="fa-solid fa-eye"></i></a>
+                    </footer>
                 </div>
             </div>
+            <br>
+
         }
     }
 
-   
+
 
 </div>
