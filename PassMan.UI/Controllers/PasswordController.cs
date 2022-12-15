@@ -70,6 +70,7 @@ namespace PassMan.UI.Controllers
         {
 
             password.Id = String.Empty;
+            password.SecretKey = "8UHjPgXZzXCGkhxV2QCnooyJexUzvJrO";
 
             _passwordService.CreateNewPasswordAsync(password);
             //ViewBag.Durum("message", "Product was successfully added");
@@ -83,6 +84,7 @@ namespace PassMan.UI.Controllers
 
             var passData = _passwordService.GetByIdAsync(id).Result;
             var imageData = CreateQRCode(passData.Password);
+            
 
             if (visible)
             {
@@ -92,7 +94,7 @@ namespace PassMan.UI.Controllers
                     imageData = imageData,
                 };
 
-                var secretData = EncryptionHelper.DecryptString(passData.Password);
+                var secretData = CryptoHelper.Decrypt(passData.Password, "8UHjPgXZzXCGkhxV2QCnooyJexUzvJrO");
                 model.Pass = secretData;
 
 

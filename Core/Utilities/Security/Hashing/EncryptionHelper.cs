@@ -6,7 +6,7 @@ namespace Core.Utilities.Security.Hashing
 {
     public static class EncryptionHelper
     {
-        private static string ConfidentialText = "hayatsanaGUZEL3210";
+        private static string ConfidentialText = "hayatsanaGUZEL3210ankara";
         static readonly bool compressText = true;
         static readonly bool decompressText = true;
         public static string EncryptString(string text)
@@ -72,12 +72,13 @@ namespace Core.Utilities.Security.Hashing
             {
                 using (RijndaelManaged AES = new RijndaelManaged())
                 {
-                    AES.KeySize = 256;
+                    //AES.KeySize = 256;
                     AES.BlockSize = 128;
 
                     var key = new Rfc2898DeriveBytes(passwordBytes, saltBytes, 1000);
                     AES.Key = key.GetBytes(AES.KeySize / 8);
                     AES.IV = key.GetBytes(AES.BlockSize / 8);
+                    AES.Padding = PaddingMode.PKCS7;
 
                     AES.Mode = CipherMode.CBC;
 
@@ -111,6 +112,7 @@ namespace Core.Utilities.Security.Hashing
                     var key = new Rfc2898DeriveBytes(passwordBytes, saltBytes, 1000);
                     AES.Key = key.GetBytes(AES.KeySize / 8);
                     AES.IV = key.GetBytes(AES.BlockSize / 8);
+                    AES.Padding = PaddingMode.PKCS7;
 
                     AES.Mode = CipherMode.CBC;
 

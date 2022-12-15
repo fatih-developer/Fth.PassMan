@@ -29,9 +29,9 @@ namespace PassMan.UI.Controllers
         }
 
 
-        public string Visible(string secret)
+        public string Visible(string secret,string key)
         {
-            var data = _passwordService.GetPasswordsByVisible(secret);
+            var data = _passwordService.GetPasswordsByVisible(secret,key);
             return data;
         }
     }

@@ -18,6 +18,8 @@ namespace Entities.Concrete
 
         [BsonElement("password")]
         public string Password { get; set; } = null!;
+
+        [BsonElement("secretkey")] public string SecretKey { get; set; } = null;
        
         [BsonElement("detail")]
         public string Detail { get; set; } = null!;
@@ -33,7 +35,9 @@ namespace Entities.Concrete
 
 
 
-        public Passwords(string loginname, string username, string password, string detail, string link, List<string> clients,List<string> category)
+
+        public Passwords(string loginname, string username, string password, string detail,
+            string link, List<string> clients,List<string> category, string secretKey)
         {
             this.Loginname = loginname;
             this.Username = username;
@@ -42,6 +46,7 @@ namespace Entities.Concrete
             this.Link = link;
             this.Clients = clients;
             this.Category = category;
+            this.SecretKey = secretKey;
         }
 
         public Passwords()

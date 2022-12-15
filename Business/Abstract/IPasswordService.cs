@@ -9,6 +9,5 @@ public interface IPasswordService
     Task CreateNewPasswordAsync(Passwords newPass);
     Task UpdatePassAsync(Passwords passToUpdate);
     Task DeletePassAsync(string id);
-
-    string GetPasswordsByVisible(string password);
+    string GetPasswordsByVisible(string password, string key);
 }

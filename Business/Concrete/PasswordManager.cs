@@ -26,7 +26,8 @@ public class PasswordManager:IPasswordService
 
     public Task CreateNewPasswordAsync(Passwords newPass)
     {
-        newPass.Password = EncryptionHelper.EncryptString(newPass.Password);
+        var key = EncryptionHelper.CPEncrypt(newPass.SecretKey);
+        newPass.Password = CryptoHelper.Encrypt(newPass.Password, newPass.SecretKey);
         return  _passwordRepository.CreateNewPasswordAsync(newPass);
     }
 
@@ -40,9 +41,12 @@ public class PasswordManager:IPasswordService
         return (_passwordRepository.DeletePassAsync(id));
     }
 
-    public string GetPasswordsByVisible(string password)
+    public string GetPasswordsByVisible(string password,string key)
     {
-        var openedPass =  EncryptionHelper.DecryptString(password);
+        key = EncryptionHelper.CPDecrypt(key);
+        var data = GetAllAsync().Result.FirstOrDefault(p => p.Password == password && p.SecretKey == key);
+        
+        var openedPass =  CryptoHelper.Decrypt(password,data.SecretKey );
 
         return openedPass;
     }
