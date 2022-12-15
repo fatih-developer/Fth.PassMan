@@ -2,6 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Drawing;
 using Business.Abstract;
+using QRCoder;
+using System.Drawing.Imaging;
+using Core.Utilities.Security.Hashing;
+using PassMan.UI.Models;
+using static QRCoder.QRCodeGenerator;
 
 namespace PassMan.UI.Controllers
 {
@@ -9,7 +14,7 @@ namespace PassMan.UI.Controllers
     {
         private IPasswordService _passwordService;
 
-
+        System.Timers.Timer _timer;
 
         public PasswordController(IPasswordService passwordService)
         {
@@ -46,6 +51,20 @@ namespace PassMan.UI.Controllers
         }
 
 
+        public byte[] CreateQRCode(string code)
+        {
+            QRCodeGenerator QrGenerator = new QRCodeGenerator();
+            QRCodeData QrCodeInfo = QrGenerator.CreateQrCode(code, QRCodeGenerator.ECCLevel.Q);
+            QRCode QrCode = new QRCode(QrCodeInfo);
+            Bitmap QrBitmap = QrCode.GetGraphic(20);
+            byte[] BitmapArray = QrBitmap.BitmapToByteArray();
+            //string QrUri = string.Format("data:image/png;base64,{0}", Convert.ToBase64String(BitmapArray));
+            //ViewBag.QrCodeUri = QrUri;
+            return BitmapArray;
+        }
+
+      
+
         [HttpPost]
         public ActionResult Add(Passwords password)
         {
@@ -58,9 +77,61 @@ namespace PassMan.UI.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Details()
+        public IActionResult Details(string id, bool visible= false)
         {
-            throw new NotImplementedException();
+            PassShowViewModel model;
+
+            var passData = _passwordService.GetByIdAsync(id).Result;
+            var imageData = CreateQRCode(passData.Password);
+
+            if (visible)
+            {
+                model = new PassShowViewModel
+                {
+                    Passwords = passData,
+                    imageData = imageData,
+                };
+
+                var secretData = EncryptionHelper.DecryptString(passData.Password);
+                model.Pass = secretData;
+
+
+                _timer = new System.Timers.Timer(1000);
+                _timer.Elapsed += (sender, e) => timer_Tick(id);
+                _timer.Start();
+            }
+            else
+            {
+                model = new PassShowViewModel
+                {
+                    Passwords = passData,
+                    imageData = imageData,
+                    Pass = String.Empty
+                };
+            }
+            return View(model);
+        }
+        private void timer_Tick(string id)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+
+            }
+            _timer.Stop();
+            Details(id, false);
+
+        }
+    }
+
+    public static class BitmapExtension
+    {
+        public static byte[] BitmapToByteArray(this Bitmap bitmap)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                bitmap.Save(ms, ImageFormat.Png);
+                return ms.ToArray();
+            }
         }
     }
 }

@@ -1,0 +1,28 @@
+﻿@model PassShowViewModel
+
+<div class="card bg-dark text-white" style="width: 18rem;">
+
+    @{
+        var base64 = Convert.ToBase64String(Model.imageData);
+        var imgSrc = String.Format("data:image/png;base64,{0}", base64);
+    }
+
+    <img src="@imgSrc" class="card-img-top h-50 w-50" alt="...">
+
+    @if (@Model.Pass != "")
+    {
+        <h2 class="card-text text-danger text-center">@Model.Pass</h2>
+    }
+
+    <div class="card-body">
+        <h5 class="card-title">@Model.Passwords.Loginname</h5>
+        <p class="card-text">Username = @Model.Passwords.Username - @Model.Passwords.Detail</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">@Model.Passwords.Category[0]</li>
+        <li class="list-group-item">@Model.Passwords.Clients[0]</li>
+    </ul>
+    <div class="card-body">
+        <a asp-controller="Password" asp-action="Details" asp-route-visible="true" class="card-link">Parola Göster</a>
+    </div>
+</div>

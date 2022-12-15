@@ -39,4 +39,11 @@ public class PasswordManager:IPasswordService
     {
         return (_passwordRepository.DeletePassAsync(id));
     }
+
+    public string GetPasswordsByVisible(string password)
+    {
+        var openedPass =  EncryptionHelper.DecryptString(password);
+
+        return openedPass;
+    }
 }
