@@ -20,7 +20,7 @@ namespace PassMan.API.Controllers
         [HttpPost("getpassword")]
         public IActionResult GetPassword([FromBody] GetPasswordModel model)
         {
-            var result = _passwordService.GetPasswordsByVisible(model.Password);
+            var result = _passwordService.GetPasswordsByVisible(model.Password,model.Key);
             return Ok(result);
         }
     }

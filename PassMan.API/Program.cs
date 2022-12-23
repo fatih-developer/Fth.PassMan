@@ -1,11 +1,40 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using Business.Abstract;
+using Business.Concrete;
+using Business.DependencyResolvers.Autofac;
+using Core.DependencyResolvers;
+using Core.Entities.Concrete;
+using Core.Extensions;
+using Core.Utilities.IoC;
+using DataAccess.Concrete.EntityFramework;
+using DataAccess.Concrete.Mongo.Repositories;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
+{
+    builder.RegisterModule(new AutofacBusinessModule());
+});
+builder.Services.AddDependencyResolvers(new ICoreModule[]
+{
+    new CoreModule()
+
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddDbContext<PassManEntityContext>(options =>
+    options.UseSqlServer(@"Server=localhost;Database=PassManIdentityDb;TrustServerCertificate=True;User Id=sa;Password=Fth0606++;"));
+builder.Services.AddIdentity<User, Member>().AddEntityFrameworkStores<PassManEntityContext>().AddDefaultTokenProviders();
+
+
 
 var app = builder.Build();
 

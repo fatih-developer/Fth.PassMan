@@ -1,9 +1,9 @@
 ﻿using Entities.Concrete;
 
-namespace PassMan.UI
+namespace PassMan.UI.Models
 {
     public class PasswordListViewModel
     {
-        public List<Passwords> ListPassword { get; set; }
+        public List<PassShowViewModel> ListPassword { get; set; }
     }
 }

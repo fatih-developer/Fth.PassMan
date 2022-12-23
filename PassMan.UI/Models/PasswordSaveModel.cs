@@ -1,6 +1,6 @@
 ﻿using Entities.Concrete;
 
-namespace PassMan.UI
+namespace PassMan.UI.Models
 {
     public class PasswordSaveModel
     {

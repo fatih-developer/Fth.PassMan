@@ -26,11 +26,10 @@ namespace PassMan.UI.Controllers
             List<string> _categoryList = new List<string>();
             List<string> _brandList = new List<string>();
 
-            _categoryList.Add("Seçiniz...");
-            _categoryList.Add("database");
-            _categoryList.Add("rdp");
-            _categoryList.Add("ssh");
-            _categoryList.Add("tcp");
+            _categoryList.Add("Seçiniz");
+            _categoryList.Add("Database");
+            _categoryList.Add("Rdp");
+            _categoryList.Add("Ssh");
 
             _brandList.Add("Seçiniz...");
             _brandList.Add("Oracle");
@@ -47,7 +46,7 @@ namespace PassMan.UI.Controllers
                 Clients = _brandList
             };
 
-            return View(model);
+            return View("Add",model);
         }
 
 
@@ -75,7 +74,7 @@ namespace PassMan.UI.Controllers
             _passwordService.CreateNewPasswordAsync(password);
             //ViewBag.Durum("message", "Product was successfully added");
 
-            return RedirectToAction("Index");
+            return RedirectToAction(actionName:"Index",controllerName:"Home");
         }
 
         public IActionResult Details(string id, bool visible= false)

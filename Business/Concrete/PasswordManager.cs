@@ -1,4 +1,7 @@
 ﻿using Business.Abstract;
+using Core.Aspects.Autofac.Auth;
+using Core.Aspects.Autofac.Logging;
+using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using Core.Utilities.Security.Hashing;
 using DataAccess.Concrete.Mongo.Repositories;
 using Entities.Concrete;
@@ -24,6 +27,8 @@ public class PasswordManager:IPasswordService
         return await _passwordRepository.GetByIdAsync(id);
     }
 
+    [LogAspect(typeof(FileLogger))]
+    [SecuredOperation("Admin")]
     public Task CreateNewPasswordAsync(Passwords newPass)
     {
         var key = EncryptionHelper.CPEncrypt(newPass.SecretKey);
