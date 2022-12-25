@@ -1,4 +1,5 @@
-﻿using Core.Entities.ComplexTypes;
+﻿using Business.Abstract;
+using Core.Entities.ComplexTypes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,11 +9,21 @@ namespace PassMan.API.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        
+        private IAuthService _authService;
+
+        public AuthController(IAuthService authService)
+        {
+            _authService = authService;
+        }
+
         [HttpPost]
         public IActionResult Login([FromBody] UserLoginDto loginDto)
         {
-            return Ok();
+
+            var resultLogin = _authService.PasswordSignInAsync(loginDto.Username, loginDto.Password, false).Result;
+
+
+            return Ok(resultLogin);
         }
 
     }

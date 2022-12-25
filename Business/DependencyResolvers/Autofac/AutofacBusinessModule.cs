@@ -20,6 +20,7 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<PasswordRepository>().As<IPasswordRepository>();
             builder.RegisterType<PasswordManager>().As<IPasswordService>();
+            builder.RegisterType<AuthManager>().As<IAuthService>();
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 

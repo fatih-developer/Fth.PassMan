@@ -24,6 +24,8 @@ public class AuthManager:IAuthService
         return result;
     }
 
+    
+
     public async Task<IdentityResult> RoleCreateAsync(Member role)
     {
         var result = await _roleManager.CreateAsync(role);
@@ -45,5 +47,12 @@ public class AuthManager:IAuthService
     public Task<IdentityResult> AddToRoleAsync(User user, string role)
     {
         throw new NotImplementedException();
+    }
+
+    public Task<SignInResult> PasswordSignInAsync(string username, string password, bool RememberMe)
+    {
+        var result = _signInManager.PasswordSignInAsync(username, password, RememberMe, false);
+
+        return result;
     }
 }
