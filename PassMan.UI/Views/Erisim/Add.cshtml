@@ -1,0 +1,47 @@
+﻿@model ConnectionAddViewModel
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-9">
+            <div class="text-center">
+
+                <form asp-controller="Erisim" asp-action="Add" method="post">
+
+                    <div class="form-group col-md-3">
+                        <select asp-for="" id="Calendar.Year" name="Calendar.Year" class="form-control" asp-items="@(years)"></select>
+                    </div>
+
+
+                    <br>
+
+                    <div class="form-group col-md-3">
+
+                        <select asp-for="Calendar.Month" id="Calendar.Month" name="Calendar.Month" class="form-control" asp-items="@(months)"></select>
+                    </div>
+
+                    <br>
+
+
+                    <div class="form-group col-md-3">
+                        <select asp-for="Calendar.Week" id="Calendar.Week" name="Calendar.Week" class="form-control" asp-items="@(weeks)"></select>
+                    </div>
+
+                    <br>
+
+                    <div class="form-group col-md-3">
+                        <input asp-for="Calendar.Day" class="form-control" id="inputName" placeholder="Gün">
+                    </div>
+
+                    <br>
+
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

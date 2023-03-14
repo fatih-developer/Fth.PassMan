@@ -5,6 +5,7 @@ using Business.Abstract;
 using QRCoder;
 using System.Drawing.Imaging;
 using Core.Utilities.Security.Hashing;
+using Entities.Concrete.MongoDb;
 using PassMan.UI.Models;
 using static QRCoder.QRCodeGenerator;
 

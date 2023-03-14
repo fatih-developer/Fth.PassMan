@@ -1,4 +1,5 @@
 ﻿using Entities.Concrete;
+using Entities.Concrete.MongoDb;
 
 namespace DataAccess.Concrete.Mongo.Repositories
 {

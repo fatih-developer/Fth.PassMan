@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Abstract\" />
-    <Folder Include="Concrete\EntityFramework\" />
     <Folder Include="Concrete\Mongo\Settings\" />
     <Folder Include="Migrations\" />
   </ItemGroup>

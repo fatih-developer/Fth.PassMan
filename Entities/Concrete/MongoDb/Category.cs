@@ -1,7 +1,7 @@
 ﻿using Core.Entities;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Entities.Concrete;
+namespace Entities.Concrete.MongoDb;
 
 public class Category:MongoModel
 {

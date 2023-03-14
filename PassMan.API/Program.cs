@@ -8,6 +8,7 @@ using Core.Entities.Concrete;
 using Core.Extensions;
 using Core.Utilities.IoC;
 using DataAccess.Concrete.EntityFramework;
+using DataAccess.Concrete.EntityFramework.Context;
 using DataAccess.Concrete.Mongo.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -30,9 +31,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<PassManEntityContext>(options =>
-    options.UseSqlServer(@"Server=localhost;Database=PassManIdentityDb;TrustServerCertificate=True;User Id=sa;Password=Fth0606++;"));
-builder.Services.AddIdentity<User, Member>().AddEntityFrameworkStores<PassManEntityContext>().AddDefaultTokenProviders();
+builder.Services.AddDbContext<PassManIdentityContext>(options =>
+    options.UseSqlServer(@"Server=localhost;Database=PassManDb;TrustServerCertificate=True;User Id=sa;Password=Fth0606++;"));
+builder.Services.AddIdentity<User, Member>().AddEntityFrameworkStores<PassManIdentityContext>().AddDefaultTokenProviders();
 
 
 

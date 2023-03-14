@@ -12,6 +12,7 @@ using DataAccess.Concrete.Mongo.Settings;
 using Microsoft.EntityFrameworkCore;
 using MongoDB.Driver;
 using Core.Entities.Concrete;
+using DataAccess.Concrete.EntityFramework.Context;
 using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -40,10 +41,10 @@ builder.Services.AddSingleton<IMongoDatabase>(options =>
     return client.GetDatabase(settings.DatabaseName);
 });
 
-builder.Services.AddDbContext<PassManEntityContext>(options =>
-    options.UseSqlServer(@"Server=localhost;Database=PassManIdentityDb;TrustServerCertificate=True;User Id=sa;Password=Fth0606++"));
+builder.Services.AddDbContext<PassManIdentityContext>(options =>
+    options.UseSqlServer(@"Server=localhost;Database=PassManDb;TrustServerCertificate=True;User Id=sa;Password=Fth0606++"));
 
-builder.Services.AddIdentity<User, Member>().AddEntityFrameworkStores<PassManEntityContext>().AddDefaultTokenProviders();
+builder.Services.AddIdentity<User, Member>().AddEntityFrameworkStores<PassManIdentityContext>().AddDefaultTokenProviders();
 
 var app = builder.Build();
 
