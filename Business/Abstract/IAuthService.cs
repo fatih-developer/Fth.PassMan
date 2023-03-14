@@ -7,7 +7,7 @@ public interface IAuthService
 {
     Task<IdentityResult> UserCreateAsync(User user, string password);
 
-    Task<IdentityResult> RoleCreateAsync(string role);
+    Task<IdentityResult> RoleCreateAsync(Member role);
 
     IList<User> GetUsersInRoleAsync(string role);
 

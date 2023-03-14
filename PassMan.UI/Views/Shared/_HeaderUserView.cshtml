@@ -1,0 +1,8 @@
+﻿@if (User.Identity.IsAuthenticated)
+{
+    <ul class="navbar-nav me-0">
+        <li class="nav-item">
+            <h4>@User.Identity.Name</h4>
+        </li>
+    </ul>
+}

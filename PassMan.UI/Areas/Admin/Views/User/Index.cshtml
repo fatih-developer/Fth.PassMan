@@ -1,0 +1,35 @@
+﻿@model List<Core.Entities.Concrete.User>
+
+@{
+    ViewData["Title"] = "Kullanıcılar";
+    Layout = "_LayoutAdmin";
+}
+
+
+<div>
+    <table class="table table-response table-hovered">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Kullanıcı Ad</th>
+                <th scope="col">EPosta</th>
+                <th scope="col">Mobil</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var m in Model)
+            {
+                <tr>
+                    <th scope="row">@m.Id</th>
+                    <td>@m.UserName</td>
+                    <td>@m.Email</td>
+                    <td>@m.PhoneNumber</td>
+                    <td></td>
+                   @* <td><a asp-controller="Password" asp-action="Details" asp-route-id="@m.Id" class="btn btn-info">Detaylar</a> </td>*@
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -32,6 +32,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<PassManEntityContext>(options =>
     options.UseSqlServer(@"Server=localhost;Database=PassManIdentityDb;TrustServerCertificate=True;User Id=sa;Password=Fth0606++;"));
+
+
 builder.Services.AddIdentity<User, Member>().AddEntityFrameworkStores<PassManEntityContext>().AddDefaultTokenProviders();
 
 

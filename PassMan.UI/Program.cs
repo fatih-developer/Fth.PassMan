@@ -25,7 +25,7 @@ builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
 builder.Services.AddDependencyResolvers(new ICoreModule[]
 {
     new CoreModule()
-            
+
 });
 
 builder.Services.AddControllersWithViews();
@@ -43,7 +43,13 @@ builder.Services.AddSingleton<IMongoDatabase>(options =>
 builder.Services.AddDbContext<PassManEntityContext>(options =>
     options.UseSqlServer(@"Server=localhost;Database=PassManIdentityDb;TrustServerCertificate=True;User Id=sa;Password=Fth0606++"));
 
-builder.Services.AddIdentity<User, Member>().AddEntityFrameworkStores<PassManEntityContext>().AddDefaultTokenProviders();
+builder.Services.AddIdentity<User, Member>(options =>
+{
+    options.Password.RequiredLength = 8;
+    options.Password.RequireUppercase = false;
+    
+
+} ).AddEntityFrameworkStores<PassManEntityContext>().AddDefaultTokenProviders();
 
 var app = builder.Build();
 
@@ -63,7 +69,15 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllerRoute(
+    name: "areas",
+    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+);
+
+
+app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Auth}/{action=Login}/{id?}");
+
+
 
 app.Run();

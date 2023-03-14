@@ -1,5 +1,9 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Aspects.Autofac.Caching;
+using Core.Entities.ComplexTypes;
 using Core.Entities.Concrete;
+using Core.Utilities.Results;
 using Microsoft.AspNetCore.Identity;
 
 namespace Business.Concrete;
@@ -30,6 +34,7 @@ public class AuthManager:IAuthService
         return result;
     }
 
+    
     public IList<User> GetUsersInRoleAsync(string role)
     {
         var result = _userManager.GetUsersInRoleAsync(role).Result;
@@ -37,13 +42,33 @@ public class AuthManager:IAuthService
 
     }
 
-    public Task<bool> RoleExistsAsync(string role)
+    public async Task<bool> RoleExistsAsync(string role)
     {
-        throw new NotImplementedException();
+        var result = await _roleManager.RoleExistsAsync(role);
+        return result;
     }
 
-    public Task<IdentityResult> AddToRoleAsync(User user, string role)
+    public async Task<IdentityResult> AddToRoleAsync(User user, string role)
     {
-        throw new NotImplementedException();
+        var result = await _userManager.AddToRoleAsync(user, "Admin");
+        return result;
     }
+
+    //public IDataResult<UserDetailDto> Login(UserLoginDto userLoginDto)
+    //{
+    //    var userToCheck = _signInManager.PasswordSignInAsync(userLoginDto.Username,userLoginDto.Password,true,false);
+        
+
+    //    //if (userToCheck == null)
+    //    //{
+    //    //    return new ErrorDataResult<UserDetailDto>(Messages.AuthError);
+    //    //}
+
+    //    //var loginOk = _ldapTools.ValidateCredentials(userLoginDto.Username, userLoginDto.Password);
+    //    //if (loginOk)
+    //    //{
+    //    //    return new SuccessDataResult<UserDetailDto>(userToCheck.Data, Messages.SuccessfulLogin);
+    //    //}
+    //    //return new ErrorDataResult<UserDetailDto>(Messages.UserPassError);
+    //}
 }
