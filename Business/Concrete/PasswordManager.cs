@@ -5,6 +5,7 @@ using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using Core.Utilities.Security.Hashing;
 using DataAccess.Concrete.Mongo.Repositories;
 using Entities.Concrete;
+using Entities.Concrete.MongoDb;
 
 namespace Business.Concrete;
 

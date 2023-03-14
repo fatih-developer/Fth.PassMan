@@ -47,7 +47,8 @@ namespace PassMan.UI.Controllers
 
                 if (result.Succeeded)
                 {
-                    if (!_roleManager.RoleExistsAsync("Admin").Result)
+                    var adminState = !_roleManager.RoleExistsAsync("Admin").Result;
+                    if (adminState)
                     {
                         Member role = new Member
                         {
@@ -65,7 +66,7 @@ namespace PassMan.UI.Controllers
 
                     }
 
-                    var adminUser = _userManager.GetUsersInRoleAsync("Normal").Result;
+                    var adminUser = _userManager.GetUsersInRoleAsync("Admin").Result;
                     if (adminUser.Count > 0)
                     {
                         if (!_roleManager.RoleExistsAsync("Normal").Result)
@@ -85,11 +86,11 @@ namespace PassMan.UI.Controllers
                             }
 
                         }
-                        _userManager.AddToRoleAsync(user, "Admin").Wait();
+                        _userManager.AddToRoleAsync(user, "Normal").Wait();
                     }
                     else
                     {
-                        _userManager.AddToRoleAsync(user, "Normal").Wait();
+                        _userManager.AddToRoleAsync(user, "Admin").Wait();
                     }
 
                     //_userManager.AddToRoleAsync(user, "Normal").Wait();

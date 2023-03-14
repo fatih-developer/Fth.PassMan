@@ -15,7 +15,6 @@ namespace PassMan.UI.Models
         //[Required]
         //[DataType(DataType.Password)]
         //public string ConfirmPassword { get; set; }
-        [Required]
-        public string Email { get; set; }
+        public string? Email { get; set; }
     }
 }

@@ -15,4 +15,6 @@ public interface IAuthService
 
     Task<IdentityResult> AddToRoleAsync(User user,string role);
 
+    Task<SignInResult> PasswordSignInAsync(string username, string password, bool RememberMe);
+
 }

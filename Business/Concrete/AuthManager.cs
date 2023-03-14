@@ -28,6 +28,8 @@ public class AuthManager:IAuthService
         return result;
     }
 
+    
+
     public async Task<IdentityResult> RoleCreateAsync(Member role)
     {
         var result = await _roleManager.CreateAsync(role);
@@ -54,21 +56,10 @@ public class AuthManager:IAuthService
         return result;
     }
 
-    //public IDataResult<UserDetailDto> Login(UserLoginDto userLoginDto)
-    //{
-    //    var userToCheck = _signInManager.PasswordSignInAsync(userLoginDto.Username,userLoginDto.Password,true,false);
-        
+    public Task<SignInResult> PasswordSignInAsync(string username, string password, bool RememberMe)
+    {
+        var result = _signInManager.PasswordSignInAsync(username, password, RememberMe, false);
 
-    //    //if (userToCheck == null)
-    //    //{
-    //    //    return new ErrorDataResult<UserDetailDto>(Messages.AuthError);
-    //    //}
-
-    //    //var loginOk = _ldapTools.ValidateCredentials(userLoginDto.Username, userLoginDto.Password);
-    //    //if (loginOk)
-    //    //{
-    //    //    return new SuccessDataResult<UserDetailDto>(userToCheck.Data, Messages.SuccessfulLogin);
-    //    //}
-    //    //return new ErrorDataResult<UserDetailDto>(Messages.UserPassError);
-    //}
+        return result;
+    }
 }
